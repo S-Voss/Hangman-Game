@@ -55,31 +55,34 @@
       var targetBlank = document.getElementById("wordBlank");
         targetBlank.innerHTML = "<div>" + wordBlanks + "</div>";
 
-    //This function listens for a user's guess
-  //  document.onkeyup = function(event) {
-  //  function () {
+    //This code-snippet listens for a user's guess
+    document.onkeyup = function(event) {
 
-  //  }
-
+      // Captures the key press, converts it to lowercase, and saves it to the variable userGuess.
+      var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+        console.log(userGuess);
       //This function decides whether or not the user's guess is correct or not
-    //  function (wordPicker) {
-    //    if (randomWord[].charAt(0) === "userGuess") {
-    //      correctGuess
-    //    } else {
-    //      incorrectGuess
-    //    }
-    //  }
+      for (var i = 0; i < wordLength; i++) {
 
+        function checkUserGuess (randomWord) {
+          if (randomWord[Array].charAt(i) === userGuess) {
+            alert("Correct Guess");
+          } else {
+            alert("Incorrect Guess");
+          }
+        }
+      }
       //This function runs if the user's guess is correct
-    //  function correctGuess () {
+      // function correctGuess () {
 
-    //  }
+      //  }
 
       //This function runs if the user's guess is incorrect
-    //  function incorrectGuess () {
+      // function incorrectGuess () {
 
-    //  }
+      //  }
 
+    }
   </script>
 
 </body>
