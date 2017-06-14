@@ -16,8 +16,8 @@
       </div>
     </div>
 
-    <div class="row word-blank">
-      <h2>This is where the word goes</h2>
+    <div class="row">
+      <h2 id="wordBlank">This is where the word goes</h2>
     </div>
 
     <div class="row">
@@ -39,45 +39,46 @@
 
   <script type="text/javascript">
 
-    var wordList = [entrepreneurial, ambitious, analytical, humurous, goal-oriented];
-    var vowelsList = [a, e, i , o, u];
-    var consonantsList = [q, w, r, t, y, p, s, d, f, g, h, j, k, l, z, x, c, v, b, n, m];
+    var wordList = ["entrepreneurial", "ambitious", "analytical", "humurous", "goal-oriented"];
+    var vowelsList = ["a", "e", "i" , "o", "u"];
+    var consonantsList = ["q", "w", "r", "t", "y", "p", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
 
     //This function randomly chooses a word for the game out of the wordList Array
-    function () {
-      var randomWord = Math.floor(Math.random() * 5) + 1
-    }
+    var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+      console.log(randomWord);
 
       //This function populates the website with the blanks based on the length of the randomly chosen word
-      function () {
+      var wordLength = randomWord.length + 1;
 
-      }
+      var wordBlanks = Array(wordLength).join("_ ");
+
+      var targetBlank = document.getElementById("wordBlank");
+        targetBlank.innerHTML = "<div>" + wordBlanks + "</div>";
 
     //This function listens for a user's guess
-    function () {
+  //  document.onkeyup = function(event) {
+  //  function () {
 
-    }
+  //  }
 
       //This function decides whether or not the user's guess is correct or not
-      function () {
-
-      }
+    //  function (wordPicker) {
+    //    if (randomWord[].charAt(0) === "userGuess") {
+    //      correctGuess
+    //    } else {
+    //      incorrectGuess
+    //    }
+    //  }
 
       //This function runs if the user's guess is correct
-      function () {
+    //  function correctGuess () {
 
-      }
+    //  }
 
       //This function runs if the user's guess is incorrect
-      function () {
+    //  function incorrectGuess () {
 
-      }
-
-
-
-
-
-
+    //  }
 
   </script>
 
