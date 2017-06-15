@@ -24,7 +24,7 @@
         <div class="col-md-6" id="stats">
           <h3>Statistics</h3>
             <ul style="list-style: none">
-              <li>Lives: </li>
+              <li id="lives">Lives: </li>
               <li>Guesses: </li>
               <li># of Wins: </li>
               <li># of Losses: </li>
@@ -55,22 +55,29 @@
       var targetBlank = document.getElementById("wordBlank");
         targetBlank.innerHTML = "<h1>" + wordBlanks + "</h1>";
 
+      var guessedLetters = [];
+
+      var allGuessedLetters = [];
+
+      var playerLives = 11;
+
 //GAME FUNCTION DECLARATIONS
 
       //This function runs if the user's guess is correct
       function correctGuess(userGuess) {
-        for (i = 0; i < randomWord.length; i++) {
-          if (randomWord[i] === userGuess) {
-            //targetBlank[i] = targetBlank[i].replace('_', "userGuess");
-            alert("Correct!");
-          }
+        for(var i = 0; i < randomWord.length; i++) {
+            if (randomWord[i] === userGuess) guessedLetters.push(userGuess);
+            targetBlank.innerHTML = guessedLetters;
         }
       };
 
       //This function runs if the user's guess is incorrect
       function incorrectGuess(userGuess) {
-
+        playerLives--;
+        var livesLeft = document.getElementById("lives");
+          lives.innerHTML = "<li>Lives: " + playerLives + "</li>";
       };
+
 
 //GAME LOGIC
 
@@ -92,10 +99,10 @@
       }
 
         checkUserGuess();
-      
+
 
 //use the function to add to an array. then use indexOf to determine if that guess has already been chosen
-
+      console.log(guessedLetters)
     }
   </script>
 
