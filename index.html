@@ -43,17 +43,36 @@
     var vowelsList = ["a", "e", "i" , "o", "u"];
     var consonantsList = ["q", "w", "r", "t", "y", "p", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
 
-    //This function randomly chooses a word for the game out of the wordList Array
+    //This code snippet randomly chooses a word for the game out of the wordList Array
     var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
       console.log(randomWord);
 
-      //This function populates the website with the blanks based on the length of the randomly chosen word
+      //This code snippet populates the website with the blanks based on the length of the randomly chosen word
       var wordLength = randomWord.length + 1;
 
       var wordBlanks = Array(wordLength).join("_ ");
 
       var targetBlank = document.getElementById("wordBlank");
-        targetBlank.innerHTML = "<div>" + wordBlanks + "</div>";
+        targetBlank.innerHTML = "<h1>" + wordBlanks + "</h1>";
+
+//GAME FUNCTION DECLARATIONS
+
+      //This function runs if the user's guess is correct
+      function correctGuess(userGuess) {
+        for (i = 0; i < randomWord.length; i++) {
+          if (randomWord[i] === userGuess) {
+            //targetBlank[i] = targetBlank[i].replace('_', "userGuess");
+            alert("Correct!");
+          }
+        }
+      };
+
+      //This function runs if the user's guess is incorrect
+      function incorrectGuess(userGuess) {
+
+      };
+
+//GAME LOGIC
 
     //This code-snippet listens for a user's guess
     document.onkeyup = function(event) {
@@ -62,25 +81,20 @@
       var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
         console.log(userGuess);
       //This function decides whether or not the user's guess is correct or not
-      for (var i = 0; i < wordLength; i++) {
+      function checkUserGuess() {
+        console.log(randomWord.includes(userGuess));
 
-        function checkUserGuess (randomWord) {
-          if (randomWord[Array].charAt(i) === userGuess) {
-            alert("Correct Guess");
-          } else {
-            alert("Incorrect Guess");
-          }
+        if (randomWord.includes(userGuess)) {
+          correctGuess(userGuess);
+        } else {
+          incorrectGuess(userGuess);
         }
       }
-      //This function runs if the user's guess is correct
-      // function correctGuess () {
 
-      //  }
+        checkUserGuess();
+      
 
-      //This function runs if the user's guess is incorrect
-      // function incorrectGuess () {
-
-      //  }
+//use the function to add to an array. then use indexOf to determine if that guess has already been chosen
 
     }
   </script>
