@@ -25,86 +25,24 @@
           <h3>Statistics</h3>
             <ul style="list-style: none">
               <li id="lives">Lives: </li>
-              <li>Guesses: </li>
-              <li># of Wins: </li>
-              <li># of Losses: </li>
+              <li id="guesses">Guesses: </li>
+              <li id="wins"># of Wins: </li>
+              <li id="losses"># of Losses: </li>
             </ul>
         </div>
         <div class="col-md-6" id="nuese">
 
         </div>
-
     </div>
+
+    <div class="row">
+      <div class="col-md-12 usedLettersList">
+        <h6 id="overallGuesses">Current Guesses: </h6>
+      </div>
+    </div>
+
   </div>
-
-  <script type="text/javascript">
-
-    var wordList = ["entrepreneurial", "ambitious", "analytical", "humurous", "goal-oriented"];
-    var vowelsList = ["a", "e", "i" , "o", "u"];
-    var consonantsList = ["q", "w", "r", "t", "y", "p", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
-
-    //This code snippet randomly chooses a word for the game out of the wordList Array
-    var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-      console.log(randomWord);
-
-      //This code snippet populates the website with the blanks based on the length of the randomly chosen word
-      var wordLength = randomWord.length + 1;
-
-      var wordBlanks = Array(wordLength).join("_ ");
-
-      var targetBlank = document.getElementById("wordBlank");
-        targetBlank.innerHTML = "<h1>" + wordBlanks + "</h1>";
-
-      var guessedLetters = [];
-
-      var allGuessedLetters = [];
-
-      var playerLives = 11;
-
-//GAME FUNCTION DECLARATIONS
-
-      //This function runs if the user's guess is correct
-      function correctGuess(userGuess) {
-        for(var i = 0; i < randomWord.length; i++) {
-            if (randomWord[i] === userGuess) guessedLetters.push(userGuess);
-            targetBlank.innerHTML = guessedLetters;
-        }
-      };
-
-      //This function runs if the user's guess is incorrect
-      function incorrectGuess(userGuess) {
-        playerLives--;
-        var livesLeft = document.getElementById("lives");
-          lives.innerHTML = "<li>Lives: " + playerLives + "</li>";
-      };
-
-
-//GAME LOGIC
-
-    //This code-snippet listens for a user's guess
-    document.onkeyup = function(event) {
-
-      // Captures the key press, converts it to lowercase, and saves it to the variable userGuess.
-      var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-        console.log(userGuess);
-      //This function decides whether or not the user's guess is correct or not
-      function checkUserGuess() {
-        console.log(randomWord.includes(userGuess));
-
-        if (randomWord.includes(userGuess)) {
-          correctGuess(userGuess);
-        } else {
-          incorrectGuess(userGuess);
-        }
-      }
-
-        checkUserGuess();
-
-
-//use the function to add to an array. then use indexOf to determine if that guess has already been chosen
-      console.log(guessedLetters)
-    }
-  </script>
-
+  
+  <script src="assets/javascript/game.js"></script>
 </body>
 </html>
